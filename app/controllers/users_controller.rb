@@ -32,16 +32,24 @@ class UsersController < ApplicationController
   def add_coin
     if params[:my_coin].present?
       @user.my_coin += params[:my_coin].to_i
-      @user.save
-      redirect_to update_coin_limit_users_path(role: params[:role])
+      if @user.save
+        flash[:notice] = "#{params[:my_coin]} deposited successfully"
+        redirect_to update_coin_limit_users_path(role: params[:role])
+      else
+        flash[:alert] = "Please enter Amount"
+      end
     end
   end
 
   def minus_coin
     if params[:my_coin].present?
       @user.my_coin -= params[:my_coin].to_i
-      @user.save
-      redirect_to update_coin_limit_users_path(role: params[:role])
+      if @user.save
+        flash[:notice] = "#{params[:my_coin]} Withdraw successfully"
+        redirect_to update_coin_limit_users_path(role: params[:role])
+       else
+        flash[:alert] = "Please enter Amount"
+      end
     end
   end
 

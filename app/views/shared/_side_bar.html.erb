@@ -10,13 +10,24 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Master Details
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to 'Super Master', users_path(role: 'super_master'), class: 'dropdown-item' %></li>
-            <li><%= link_to 'Agent Master', users_path(role: 'agent'), class: 'dropdown-item' %></li>
-            <li><%= link_to 'Client Master', users_path(role: 'client'), class: 'dropdown-item' %></li>
-            <%# <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li> %>
-          </ul>
+          <% if current_user.role == 'admin' %>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to 'Super Master', users_path(role: 'super_master'), class: 'dropdown-item' %></li>
+              <li><%= link_to 'Agent Master', users_path(role: 'agent'), class: 'dropdown-item' %></li>
+              <li><%= link_to 'Client Master', users_path(role: 'client'), class: 'dropdown-item' %></li>
+              <%# <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li> %>
+            </ul>
+          <% elsif current_user.role == 'super_master' %>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to 'Agent Master', users_path(role: 'agent'), class: 'dropdown-item' %></li>
+              <li><%= link_to 'Client Master', users_path(role: 'client'), class: 'dropdown-item' %></li>
+            </ul>
+          <% elsif current_user.role == 'agent' %>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to 'Client Master', users_path(role: 'client'), class: 'dropdown-item' %></li>
+            </ul>
+          <% end %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

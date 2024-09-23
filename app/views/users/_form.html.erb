@@ -47,42 +47,42 @@
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
-          <%= f.label :my_match_share, class: 'form-label' %>
-          <%= f.text_field :my_match_share, autofocus: true, class: 'form-control', placeholder: 'Enter Full Name' %>
+          <%= label_tag 'my_match_share', 'My Match Share(%)', class: 'form-label' %>
+          <%= text_field_tag 'my_match_share','', autofocus: true, class: 'form-control', placeholder: 'My Match Share', value: current_user.my_match_share, readonly: true %>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
-          <%= f.label :match_share, class: 'form-label' %>
-          <%= f.text_field :match_share, autofocus: true, class: 'form-control', placeholder: 'Match Share' %>
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-4">
-        <div class="form-group mb-3">
-          <%= f.label :my_match_comm, class: 'form-label' %>
-          <%= f.text_field :my_match_comm, autofocus: true, class: 'form-control', placeholder: 'My Match Comm' %>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="form-group mb-3">
-          <%= f.label :match_comm, class: 'form-label' %>
-          <%= f.text_field :match_comm, autofocus: true, class: 'form-control', placeholder: 'Match Comm' %>
+          <%= f.label :my_match_share, 'Match Share(%)', class: 'form-label' %>
+          <%= f.text_field :my_match_share, autofocus: true, class: 'form-control', placeholder: 'Match Share' %>
         </div>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
-          <%= f.label :my_sess_comm, class: 'form-label' %>
-          <%= f.text_field :my_sess_comm, autofocus: true, class: 'form-control', placeholder: 'My Sess Comm' %>
+          <%= label_tag 'my_match_comm', 'My Match comm(%)', class: 'form-label' %>
+          <%= text_field_tag 'my_match_comm','', autofocus: true, class: 'form-control', placeholder: 'My Match comm', value: current_user.my_match_comm, readonly: true %>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
-          <%= f.label :sess_comm, class: 'form-label' %>
-          <%= f.text_field :sess_comm, autofocus: true, class: 'form-control', placeholder: 'Sess Comm' %>
+          <%= f.label :my_match_comm, 'Match comm(%)', class: 'form-label' %>
+          <%= f.text_field :my_match_comm, autofocus: true, class: 'form-control', placeholder: 'Match Comm' %>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="form-group mb-3">
+          <%= label_tag 'my_sess_comm', 'My Sess comm(%)', class: 'form-label' %>
+          <%= text_field_tag 'my_sess_comm','', autofocus: true, class: 'form-control', placeholder: 'My Sess Comm', value: current_user.my_sess_comm, readonly: true %>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="form-group mb-3">
+          <%= f.label :my_sess_comm, 'Sess comm(%)', class: 'form-label' %>
+          <%= f.text_field :my_sess_comm, autofocus: true, class: 'form-control', placeholder: 'Sess Comm' %>
         </div>
       </div>
     </div>
@@ -90,35 +90,35 @@
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
-          <%= f.label :my_casino_share, class: 'form-label' %>
-          <%= f.text_field :my_casino_share, autofocus: true, class: 'form-control', placeholder: 'My Casino Share' %>
+          <%= label_tag 'my_casino_share', 'My Casino Share(%)', class: 'form-label' %>
+          <%= text_field_tag 'my_casino_share','', autofocus: true, class: 'form-control', placeholder: 'Casino Comm', value: current_user.my_casino_share, readonly: true %>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
-          <%= f.label :casino_share, class: 'form-label' %>
-          <%= f.text_field :casino_share, autofocus: true, class: 'form-control', placeholder: 'Casino Share' %>
+          <%= f.label :my_casino_share, 'Casino Share(%)', class: 'form-label' %>
+          <%= f.text_field :my_casino_share, autofocus: true, class: 'form-control', placeholder: 'Casino Share' %>
         </div>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
-          <%= f.label :my_casino_comm, class: 'form-label' %>
-          <%= f.text_field :my_casino_comm, autofocus: true, class: 'form-control', placeholder: 'My Casino Comm' %>
+          <%= label_tag 'my_casino_comm', 'My Casino comm(%)', class: 'form-label' %>
+          <%= text_field_tag 'my_casino_comm','', autofocus: true, class: 'form-control', placeholder: 'Casino Comm', value: current_user.my_casino_comm, readonly: true %>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
-          <%= f.label :casino_comm, class: 'form-label' %>
-          <%= f.text_field :casino_comm, autofocus: true, class: 'form-control', placeholder: 'Casino Comm' %>
+          <%= f.label :my_casino_comm, 'Casino comm(%)', class: 'form-label' %>
+          <%= f.text_field :my_casino_comm, autofocus: true, class: 'form-control', placeholder: 'Casino Comm' %>
         </div>
       </div>
     </div>
     <%= f.hidden_field :role, value: user.role %>
     <%= f.hidden_field :user_id, value: current_user.id %>
 
-    <div class="form-group text-center">
+    <div class="form-group text-center mb-3">
       <%= f.submit 'Create', class: 'btn btn-primary btn-block' %>
     </div>
   </div>

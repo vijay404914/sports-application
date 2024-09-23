@@ -14,14 +14,50 @@
   </head>
 
   <body>
-    <%= render 'shared/side_bar' %>
-    <p class="navbar-text float-right">
+    <% flash.each do |key, message| %>
+      <div class="flash-message <%= key %>"><%= message %></div>
+    <% end %>
+
     <% if user_signed_in? %>
+      <%= render 'shared/side_bar' %>
     <% else %>
-      <%#= link_to "Sign up", new_user_registration_path, class: "navbar-link"  %> |
+      <%#= link_to "Sign up", new_user_registration_path, class: "navbar-link"  %> 
       <%#= link_to "Login", new_user_session_path, class: "navbar-link"  %>
     <% end %>
-    </p>
     <%= yield %>
   </body>
 </html>
+<style>
+  .flash-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    z-index: 1000;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+  }
+
+  /* Green background for success messages */
+  .flash-message.notice {
+    background-color: #28a745;
+  }
+
+  /* Red background for error messages */
+  .flash-message.alert {
+    background-color: #dc3545;
+  }
+
+  /* Add smooth transition */
+  .flash-message {
+    transition: opacity 0.5s ease-out, top 0.5s ease-out;
+  }
+
+  .flash-message.hide {
+    opacity: 0;
+    top: 0;
+  }
+</style>
