@@ -15,6 +15,22 @@
         </div>
       </div>
     </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="form-group mb-3">
+          <%= label_tag 'my_coin', 'My Coin', class: 'form-label' %>
+          <%= text_field_tag 'my_coin','', autofocus: true, class: 'form-control', placeholder: 'My Match Share', value: current_user.my_coin, readonly: true %>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="form-group mb-3">
+          <%= f.label :my_coin, 'Coin', class: 'form-label' %>
+          <%= f.text_field :my_coin, autofocus: true, class: 'form-control', placeholder: 'Coin' %>
+        </div>
+      </div>
+    </div>
+
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
@@ -22,10 +38,13 @@
           <%= f.email_field :email, class: 'form-control', placeholder: 'Enter Email' %>
         </div>
       </div>
+      <% password = user.random_password %>
+      <%= f.hidden_field :password_confirmation, value: password %>
+      <%= f.hidden_field :user_name, value: user.random_generate_user_name(user.role) %>
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
           <%= f.label :password, class: 'form-label' %>
-          <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Enter Password' %>
+          <%= f.text_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Enter Password', value: password, readonly: true %>
         </div>
       </div>
     </div>
@@ -33,7 +52,7 @@
       <div class="col-md-6 col-lg-4">
         <div class="form-group mb-3">
           <%= f.label :password_confirmation, class: 'form-label' %>
-          <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'Confirm Password' %>
+          <%= f.text_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'Confirm Password', value: password, readonly: true %>
         </div>
       </div>
       <div class="col-md-6 col-lg-4">
