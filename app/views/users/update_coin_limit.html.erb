@@ -1,0 +1,36 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>C.Chips</th>
+        <th>Add Limit</th>
+        <th>Minus Limit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.my_coin %></td>
+          <td>
+            <%= form_with url: add_coin_user_path(user.id), method: :post, local: true, class: 'd-inline-flex' do |f| %>
+              <%= f.number_field :my_coin, class: 'form-control me-2', placeholder: 'Amount' %>
+              <%= f.hidden_field :role, value: params['role'] %>
+              <%= f.submit 'Add', class: 'btn btn-success me-2' %>
+            <% end %>
+          </td>
+          <td>
+            <%= form_with url: minus_coin_user_path(user.id), method: :post, local: true, class: 'd-inline-flex' do |f| %>
+              <%= f.number_field :my_coin, class: 'form-control me-2', placeholder: 'Amount' %>
+              <%= f.hidden_field :role, value: params['role'] %>
+              <%= f.submit 'Minus', class: 'btn btn-danger' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
