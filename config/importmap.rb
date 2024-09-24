@@ -105,3 +105,9 @@ pin "xmlhttprequest" # @1.2.2
 pin "@hotwired/turbo-rails", to: "@hotwired--turbo-rails.js" # @8.0.10
 pin "@hotwired/turbo", to: "@hotwired--turbo.js" # @8.0.10
 pin "@rails/actioncable/src", to: "@rails--actioncable--src.js" # @7.2.100
+pin "@hotwired/stimulus", to: "stimulus.min.js"
+pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
+pin_all_from "app/javascript/controllers", under: "controllers"
+pin "stimulus", to: "https://ga.jspm.io/npm:stimulus@3.2.1/dist/stimulus.js"
+pin "jquery", to: "https://code.jquery.com/jquery-3.6.0.min.js"
+pin "jquery-validation", to: "https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"
