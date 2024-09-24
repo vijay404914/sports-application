@@ -7,7 +7,6 @@
     <thead>
       <tr>
         <th>User Name</th>
-        <th>Email</th>
         <th>Name</th>
       </tr>
     </thead>
@@ -15,7 +14,6 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.user_name %></td>
-          <td><%= user.email %></td>
           <td><%= user.name %></td>
         </tr>
       <% end %>
